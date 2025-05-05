@@ -24,6 +24,8 @@ using System.Globalization;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Text.RegularExpressions;
+using OfficeOpenXml;
+using System.Linq;
 
 namespace CodeGeneratorOpenness
 {
@@ -1736,6 +1738,67 @@ namespace CodeGeneratorOpenness
             node.AppendChild(mNode);
         }
 
+        private void GenerateBlocksFromExcel(string excelFilePath)
+        {
+            // Load the Excel file
+            FileInfo fileInfo = new FileInfo(excelFilePath);
+            using (ExcelPackage package = new ExcelPackage(fileInfo))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
+                if (worksheet == null)
+                {
+                    MessageError("No worksheet found in the Excel file.", "Error");
+                    return;
+                }
+
+                // Read rows and columns
+                int rowCount = worksheet.Dimension.Rows;
+                int colCount = worksheet.Dimension.Columns;
+
+                for (int row = 2; row <= rowCount; row++) // Assuming first row is header
+                {
+                    string blockName = worksheet.Cells[row, 1].Text; // Block name in column 1
+                    string parameter1 = worksheet.Cells[row, 2].Text; // Parameter 1 in column 2
+                    string parameter2 = worksheet.Cells[row, 3].Text; // Parameter 2 in column 3
+
+                    // Generate XML for the block
+                    GenerateBlockXML(blockName, parameter1, parameter2);
+                }
+
+                MessageOK("Blocks generated successfully from Excel.", "Success");
+            }
+        }
+
+        private void GenerateBlockXML(string blockName, string parameter1, string parameter2)
+        {
+            // Load the standard block template
+            string templatePath = Path.Combine(Application.StartupPath, "XML", "StandardBlockTemplate.xml");
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(templatePath);
+
+            // Modify the template with block-specific data
+            XmlNode nameNode = xmlDoc.SelectSingleNode("//BlockName");
+            if (nameNode != null)
+            {
+                nameNode.InnerText = blockName;
+            }
+
+            XmlNode param1Node = xmlDoc.SelectSingleNode("//Parameter1");
+            if (param1Node != null)
+            {
+                param1Node.InnerText = parameter1;
+            }
+
+            XmlNode param2Node = xmlDoc.SelectSingleNode("//Parameter2");
+            if (param2Node != null)
+            {
+                param2Node.InnerText = parameter2;
+            }
+
+            // Save the generated XML
+            string outputPath = Path.Combine(Application.StartupPath, "Export", blockName + ".xml");
+            xmlDoc.Save(outputPath);
+        }
     }
 }
 
