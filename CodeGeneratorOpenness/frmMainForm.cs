@@ -622,7 +622,7 @@ namespace CodeGeneratorOpenness
 
                     using (OpenFileDialog openFileDialog = new OpenFileDialog())
                     {
-                        string filter = "V17 project files (*.ap17)|*.ap17|All files (*.*)|*.*";
+                        string filter = "V19 project files (*.ap19)|*.ap19|All files (*.*)|*.*";
                         if (Program.Version == "16.0") filter = "V16 project files (*.ap16)|*.ap16|All files (*.*)|*.*";
                         if (Program.Version == "15.1") filter = "V15.1 project files (*.ap15_1)|*.ap15_1|All files (*.*)|*.*";
                         if (Program.Version == "15.0") filter = "V15 project files (*.ap15)|*.ap15|All files (*.*)|*.*";
@@ -1262,7 +1262,7 @@ namespace CodeGeneratorOpenness
         {
             // as base we load a empty V14 graph
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml((GetResourceTextFile("V14SP1.xml")));
+            xmlDoc.LoadXml((GetResourceTextFile("V19.xml")));
 
             XmlSetAttribute("Engineering", "version", "V14 SP1", xmlDoc);
 
