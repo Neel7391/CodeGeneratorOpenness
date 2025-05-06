@@ -1852,6 +1852,19 @@ namespace CodeGeneratorOpenness
 
         public void GenerateFunctionCallsFromExcel(string excelFilePath)
         {
+            // Load the CallCmMotor.xml template
+            string templatePath = Path.Combine(Application.StartupPath, "XML", "CallCmMotor.xml");
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(templatePath);
+
+            // Locate the section where function calls should be appended
+            XmlNode compileUnitNode = xmlDoc.SelectSingleNode("//SW.Blocks.CompileUnit/AttributeList/NetworkSource/StatementList");
+            if (compileUnitNode == null)
+            {
+                MessageError("Could not find the StatementList node in the XML template.", "Error");
+                return;
+            }
+
             // Load the Excel file using NPOI
             using (FileStream fileStream = new FileStream(excelFilePath, FileMode.Open, FileAccess.Read))
             {
@@ -1874,37 +1887,54 @@ namespace CodeGeneratorOpenness
 
                     if (!string.IsNullOrEmpty(motorName))
                     {
-                        GenerateFunctionCallXML(motorName);
+                        // Create a new function call node
+                        XmlElement functionCallNode = xmlDoc.CreateElement("StlStatement");
+                        functionCallNode.SetAttribute("UId", (100 + rowIndex * 2).ToString()); // Example UID generation
+
+                        XmlElement tokenNode = xmlDoc.CreateElement("StlToken");
+                        tokenNode.SetAttribute("Text", "CALL");
+                        functionCallNode.AppendChild(tokenNode);
+
+                        XmlElement accessNode = xmlDoc.CreateElement("Access");
+                        accessNode.SetAttribute("Scope", "Call");
+
+                        XmlElement callInfoNode = xmlDoc.CreateElement("CallInfo");
+                        callInfoNode.SetAttribute("Name", "@CmMotor");
+                        callInfoNode.SetAttribute("BlockType", "FC");
+
+                        // Add parameters to the function call
+                        XmlElement parameterNode = xmlDoc.CreateElement("Parameter");
+                        parameterNode.SetAttribute("Name", "CM");
+                        parameterNode.SetAttribute("Section", "InOut");
+                        parameterNode.SetAttribute("Type", "Any");
+
+                        XmlElement parameterAccessNode = xmlDoc.CreateElement("Access");
+                        parameterAccessNode.SetAttribute("Scope", "GlobalVariable");
+
+                        XmlElement symbolNode = xmlDoc.CreateElement("Symbol");
+                        XmlElement componentNode = xmlDoc.CreateElement("Component");
+                        componentNode.SetAttribute("Name", "@DBCmMotor");
+                        symbolNode.AppendChild(componentNode);
+
+                        componentNode = xmlDoc.CreateElement("Component");
+                        componentNode.SetAttribute("Name", motorName);
+                        symbolNode.AppendChild(componentNode);
+
+                        parameterAccessNode.AppendChild(symbolNode);
+                        parameterNode.AppendChild(parameterAccessNode);
+                        callInfoNode.AppendChild(parameterNode);
+                        accessNode.AppendChild(callInfoNode);
+                        functionCallNode.AppendChild(accessNode);
+
+                        // Append the function call node to the StatementList
+                        compileUnitNode.AppendChild(functionCallNode);
                     }
                 }
 
-                MessageOK("Function calls generated successfully from Excel.", "Success");
+                // Save the updated XML back to the same file
+                xmlDoc.Save(templatePath);
+                MessageOK("Function calls appended successfully to CallCmMotor.xml.", "Success");
             }
-        }
-
-        private void GenerateFunctionCallXML(string motorName)
-        {
-            // Load the CallCmMotor.xml template
-            string templatePath = Path.Combine(Application.StartupPath, "XML", "CallCmMotor.xml");
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(templatePath);
-
-            // Modify the template with motor-specific data
-            XmlNode nameNode = xmlDoc.SelectSingleNode("//Name");
-            if (nameNode != null)
-            {
-                nameNode.InnerText = $"CallCmMotor_{motorName}";
-            }
-
-            XmlNode numberNode = xmlDoc.SelectSingleNode("//Number");
-            if (numberNode != null)
-            {
-                numberNode.InnerText = motorName.Substring(1); // Extract number from M01, M02, etc.
-            }
-
-            // Save the modified XML
-            string outputPath = Path.Combine(Application.StartupPath, "Export", $"CallCmMotor_{motorName}.xml");
-            xmlDoc.Save(outputPath);
         }
     }
 }
