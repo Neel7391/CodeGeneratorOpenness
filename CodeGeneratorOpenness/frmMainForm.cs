@@ -1820,6 +1820,92 @@ namespace CodeGeneratorOpenness
                 }
             }
         }
+
+        public void CallMotorTest(List<string> motorNames)
+        {
+            foreach (var motorName in motorNames)
+            {
+                // Create a new instance of the @CmMotor block
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load("/workspaces/CodeGeneratorOpenness/CodeGeneratorOpenness/XML/CallCmMotor.xml");
+
+                // Modify the block name and number based on the motorName
+                XmlNode nameNode = xmlDoc.SelectSingleNode("//Name");
+                if (nameNode != null)
+                {
+                    nameNode.InnerText = $"CallCmMotor_{motorName}";
+                }
+
+                XmlNode numberNode = xmlDoc.SelectSingleNode("//Number");
+                if (numberNode != null)
+                {
+                    numberNode.InnerText = motorName.Substring(1); // Extract number from M01, M02, etc.
+                }
+
+                // Save the modified XML to a new file
+                string outputPath = $"/workspaces/CodeGeneratorOpenness/CodeGeneratorOpenness/XML/CallCmMotor_{motorName}.xml";
+                xmlDoc.Save(outputPath);
+
+                Console.WriteLine($"Created motor instance: {outputPath}");
+            }
+        }
+
+        public void GenerateFunctionCallsFromExcel(string excelFilePath)
+        {
+            // Load the Excel file using NPOI
+            using (FileStream fileStream = new FileStream(excelFilePath, FileMode.Open, FileAccess.Read))
+            {
+                IWorkbook workbook = new XSSFWorkbook(fileStream);
+                ISheet sheet = workbook.GetSheetAt(0);
+
+                if (sheet == null)
+                {
+                    MessageError("No worksheet found in the Excel file.", "Error");
+                    return;
+                }
+
+                // Read rows and columns
+                for (int rowIndex = 1; rowIndex <= sheet.LastRowNum; rowIndex++) // Assuming first row is header
+                {
+                    IRow row = sheet.GetRow(rowIndex);
+                    if (row == null) continue;
+
+                    string motorName = row.GetCell(0)?.ToString(); // Motor name in column 1
+
+                    if (!string.IsNullOrEmpty(motorName))
+                    {
+                        GenerateFunctionCallXML(motorName);
+                    }
+                }
+
+                MessageOK("Function calls generated successfully from Excel.", "Success");
+            }
+        }
+
+        private void GenerateFunctionCallXML(string motorName)
+        {
+            // Load the CallCmMotor.xml template
+            string templatePath = Path.Combine(Application.StartupPath, "XML", "CallCmMotor.xml");
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(templatePath);
+
+            // Modify the template with motor-specific data
+            XmlNode nameNode = xmlDoc.SelectSingleNode("//Name");
+            if (nameNode != null)
+            {
+                nameNode.InnerText = $"CallCmMotor_{motorName}";
+            }
+
+            XmlNode numberNode = xmlDoc.SelectSingleNode("//Number");
+            if (numberNode != null)
+            {
+                numberNode.InnerText = motorName.Substring(1); // Extract number from M01, M02, etc.
+            }
+
+            // Save the modified XML
+            string outputPath = Path.Combine(Application.StartupPath, "Export", $"CallCmMotor_{motorName}.xml");
+            xmlDoc.Save(outputPath);
+        }
     }
 }
 

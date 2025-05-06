@@ -1,0 +1,1136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>CallCmMotor_1</Name>
+      <Namespace />
+      <Number>3</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>de-DE</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v5">
+  <StlStatement UId="24">
+    <LineComment>
+      <Text>------------Interlock Status ---------------------</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="26">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="28">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="30">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="32">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="34">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="36">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="38">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="40">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>4</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="42">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="44">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>5</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="46">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="48">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>6</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="50">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="52">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>7</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="54">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="56">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>8</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="89">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="96">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>9</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="98">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="100">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="102">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="104">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>11</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="106">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="108">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="111">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="113">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>13</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="115">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="117">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>14</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="119">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="121">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>15</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="123">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="125">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="InterlockStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="110">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="85">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="58">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="59">
+    <LineComment>
+      <Text>-----------Persmissive Status ---------------------</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="61">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="62">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="64">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="66">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="68">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="70">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="72">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="74">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="76">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>4</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="78">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="80">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>5</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="82">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="84">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>6</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="86">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="88">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>7</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="90">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="92">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>8</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="128">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="130">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>9</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="132">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="134">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="136">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="138">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>11</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="140">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="142">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="144">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="146">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>13</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="148">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="150">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>14</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="152">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="154">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>15</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="156">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="AlwaysTRUE" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="158">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="@DBCmMotor" />
+        <Component Name="FT00P01" />
+        <Component Name="PermissiveStatus" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="127">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="94">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>de-DE</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FT00P01- Interlock and permissive for Motor block</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>de-DE</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v5">
+  <StlStatement UId="59">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="FT00P01_TRIP" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="63">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="FT00P01_TRIP_BIT" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="24">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="25">
+    <StlToken Text="CALL" />
+    <Access Scope="Call">
+      <CallInfo Name="@CmMotor" BlockType="FC">
+        <Parameter Name="i_Remote" Section="Input" Type="Bool">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>Bool</ConstantType>
+              <ConstantValue>True</ConstantValue>
+            </Constant>
+          </Access>
+        </Parameter>
+        <Parameter Name="i_RunFb" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="FT00P01_RUN" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="i_TrippedFb" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="FT00P01_TRIP" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="i_Inhibit" Section="Input" Type="Bool">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>Bool</ConstantType>
+              <ConstantValue>True</ConstantValue>
+            </Constant>
+          </Access>
+        </Parameter>
+        <Parameter Name="i_EStop" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmDi" />
+              <Component Name="Estop" />
+              <Component Name="Status" />
+              <Component Name="Active" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="FeatureITripPolarity" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="FALSE" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="FirstScanBit" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="FirstScan" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="OneSec" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="OSP" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="SimOn" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmMotor" />
+              <Component Name="FT00P01" />
+              <Component Name="Command" />
+              <Component Name="SimOn" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="SimOff" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmMotor" />
+              <Component Name="FT00P01" />
+              <Component Name="Command" />
+              <Component Name="SimOff" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="CommonReset" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmMotor" />
+              <Component Name="FT00P01" />
+              <Component Name="Command" />
+              <Component Name="LocalFaultReset" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="HooterReset" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="DbHooter" />
+              <Component Name="Hooter_Reset" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="AutoReqMode" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmMotor" />
+              <Component Name="FT00P01" />
+              <Component Name="Command" />
+              <Component Name="AutoModeReq" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="DCSOperation" Section="Input" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="Loc_Rem_Ctrl" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="q_On" Section="Output" Type="Bool">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="FT00P01_CMD" />
+            </Symbol>
+          </Access>
+        </Parameter>
+        <Parameter Name="CM" Section="InOut" Type="Any">
+          <Access Scope="GlobalVariable">
+            <Symbol>
+              <Component Name="@DBCmMotor" />
+              <Component Name="FT00P01" />
+            </Symbol>
+          </Access>
+        </Parameter>
+      </CallInfo>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="56">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="58">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>CALL of CM_Motor</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>de-DE</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FT00P01</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>de-DE</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="12" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="14" CompositionName="Items">
+            <AttributeList>
+              <Culture>de-DE</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>
