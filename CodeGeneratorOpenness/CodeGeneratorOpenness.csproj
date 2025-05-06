@@ -125,5 +125,10 @@
     <EmbeddedResource Include="Ressources\FB.png" />
     <EmbeddedResource Include="Ressources\OB.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\*.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
