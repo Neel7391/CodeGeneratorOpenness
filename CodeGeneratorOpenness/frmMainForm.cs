@@ -1852,16 +1852,29 @@ namespace CodeGeneratorOpenness
 
         public void GenerateFunctionCallsFromExcel(string excelFilePath)
         {
+            Console.WriteLine("Starting GenerateFunctionCallsFromExcel...");
+
             // Load the CallCmMotor.xml template
             string templatePath = Path.Combine(Application.StartupPath, "XML", "CallCmMotor.xml");
+            Console.WriteLine($"Template path: {templatePath}");
+
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(templatePath);
+            try
+            {
+                xmlDoc.Load(templatePath);
+                Console.WriteLine("Template loaded successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading template: {ex.Message}");
+                return;
+            }
 
             // Locate the section where function calls should be appended
             XmlNode compileUnitNode = xmlDoc.SelectSingleNode("//SW.Blocks.CompileUnit/AttributeList/NetworkSource/StatementList");
             if (compileUnitNode == null)
             {
-                MessageError("Could not find the StatementList node in the XML template.", "Error");
+                Console.WriteLine("Could not find the StatementList node in the XML template.");
                 return;
             }
 
@@ -1873,9 +1886,11 @@ namespace CodeGeneratorOpenness
 
                 if (sheet == null)
                 {
-                    MessageError("No worksheet found in the Excel file.", "Error");
+                    Console.WriteLine("No worksheet found in the Excel file.");
                     return;
                 }
+
+                Console.WriteLine("Reading rows from Excel...");
 
                 // Read rows and columns
                 for (int rowIndex = 1; rowIndex <= sheet.LastRowNum; rowIndex++) // Assuming first row is header
@@ -1887,6 +1902,8 @@ namespace CodeGeneratorOpenness
 
                     if (!string.IsNullOrEmpty(motorName))
                     {
+                        Console.WriteLine($"Processing motor: {motorName}");
+
                         // Create a new function call node
                         XmlElement functionCallNode = xmlDoc.CreateElement("StlStatement");
                         functionCallNode.SetAttribute("UId", (100 + rowIndex * 2).ToString()); // Example UID generation
@@ -1931,9 +1948,17 @@ namespace CodeGeneratorOpenness
                     }
                 }
 
-                // Save the updated XML back to the same file
-                xmlDoc.Save(templatePath);
-                MessageOK("Function calls appended successfully to CallCmMotor.xml.", "Success");
+                Console.WriteLine("Appending function calls completed. Saving file...");
+
+                try
+                {
+                    xmlDoc.Save(templatePath);
+                    Console.WriteLine("File saved successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error saving file: {ex.Message}");
+                }
             }
         }
     }
