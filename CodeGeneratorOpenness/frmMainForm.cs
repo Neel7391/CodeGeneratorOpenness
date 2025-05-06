@@ -26,6 +26,8 @@ using System.Xml.Serialization;
 using System.Text.RegularExpressions;
 using OfficeOpenXml;
 using System.Linq;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace CodeGeneratorOpenness
 {
@@ -1740,27 +1742,27 @@ namespace CodeGeneratorOpenness
 
         private void GenerateBlocksFromExcel(string excelFilePath)
         {
-            // Set the license for EPPlus 8+
-            ExcelPackage.SetLicense(new LicenseContext { LicenseType = LicenseType.NonCommercial });
-            FileInfo fileInfo = new FileInfo(excelFilePath);
-            using (ExcelPackage package = new ExcelPackage(fileInfo))
+            // Load the Excel file using NPOI
+            using (FileStream fileStream = new FileStream(excelFilePath, FileMode.Open, FileAccess.Read))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
-                if (worksheet == null)
+                IWorkbook workbook = new XSSFWorkbook(fileStream);
+                ISheet sheet = workbook.GetSheetAt(0);
+
+                if (sheet == null)
                 {
                     MessageError("No worksheet found in the Excel file.", "Error");
                     return;
                 }
 
                 // Read rows and columns
-                int rowCount = worksheet.Dimension.Rows;
-                int colCount = worksheet.Dimension.Columns;
-
-                for (int row = 2; row <= rowCount; row++) // Assuming first row is header
+                for (int rowIndex = 1; rowIndex <= sheet.LastRowNum; rowIndex++) // Assuming first row is header
                 {
-                    string blockName = worksheet.Cells[row, 1].Text; // Block name in column 1
-                    string parameter1 = worksheet.Cells[row, 2].Text; // Parameter 1 in column 2
-                    string parameter2 = worksheet.Cells[row, 3].Text; // Parameter 2 in column 3
+                    IRow row = sheet.GetRow(rowIndex);
+                    if (row == null) continue;
+
+                    string blockName = row.GetCell(0)?.ToString(); // Block name in column 1
+                    string parameter1 = row.GetCell(1)?.ToString(); // Parameter 1 in column 2
+                    string parameter2 = row.GetCell(2)?.ToString(); // Parameter 2 in column 3
 
                     // Generate XML for the block
                     GenerateBlockXML(blockName, parameter1, parameter2);
