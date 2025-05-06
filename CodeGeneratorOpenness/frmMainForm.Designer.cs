@@ -93,6 +93,7 @@
             this.btnCombine = new System.Windows.Forms.Button();
             this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateStepSeqenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGenerateBlocksFromExcel = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -646,6 +647,17 @@
             this.generateStepSeqenceToolStripMenuItem.Text = "Generate Step Seqence";
             this.generateStepSeqenceToolStripMenuItem.Click += new System.EventHandler(this.generateStepSeqenceToolStripMenuItem_Click);
             // 
+            // btnGenerateBlocksFromExcel
+            // 
+            this.btnGenerateBlocksFromExcel.Location = new System.Drawing.Point(20, 300);
+            this.btnGenerateBlocksFromExcel.Name = "btnGenerateBlocksFromExcel";
+            this.btnGenerateBlocksFromExcel.Size = new System.Drawing.Size(200, 30);
+            this.btnGenerateBlocksFromExcel.TabIndex = 41;
+            this.btnGenerateBlocksFromExcel.Text = "Generate Blocks from Excel";
+            this.btnGenerateBlocksFromExcel.UseVisualStyleBackColor = true;
+            this.btnGenerateBlocksFromExcel.Click += new System.EventHandler(this.btnGenerateBlocksFromExcel_Click);
+            this.Controls.Add(this.btnGenerateBlocksFromExcel);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -774,6 +786,7 @@
         private System.Windows.Forms.Button btnCombine;
         private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateStepSeqenceToolStripMenuItem;
+        private System.Windows.Forms.Button btnGenerateBlocksFromExcel;
     }
 }
 

@@ -1772,7 +1772,7 @@ namespace CodeGeneratorOpenness
         private void GenerateBlockXML(string blockName, string parameter1, string parameter2)
         {
             // Load the standard block template
-            string templatePath = Path.Combine(Application.StartupPath, "XML", "StandardBlockTemplate.xml");
+            string templatePath = Path.Combine(Application.StartupPath, "XML", "@CmMotor.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(templatePath);
 
@@ -1798,6 +1798,24 @@ namespace CodeGeneratorOpenness
             // Save the generated XML
             string outputPath = Path.Combine(Application.StartupPath, "Export", blockName + ".xml");
             xmlDoc.Save(outputPath);
+        }
+
+        private void btnGenerateBlocksFromExcel_Click(object sender, EventArgs e)
+        {
+            // Open a file dialog to select the Excel file
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                openFileDialog.Title = "Select Excel File";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string excelFilePath = openFileDialog.FileName;
+
+                    // Call the method to generate blocks from the selected Excel file
+                    GenerateBlocksFromExcel(excelFilePath);
+                }
+            }
         }
     }
 }
