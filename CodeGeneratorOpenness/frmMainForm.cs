@@ -1740,8 +1740,8 @@ namespace CodeGeneratorOpenness
 
         private void GenerateBlocksFromExcel(string excelFilePath)
         {
-            // Set the license context before using EPPlus
-            ExcelPackage.SetLicenseContext(LicenseContext.NonCommercial);
+            // Set the license for EPPlus 8+
+            ExcelPackage.License = new LicenseProvider().GetLicense();
             FileInfo fileInfo = new FileInfo(excelFilePath);
             using (ExcelPackage package = new ExcelPackage(fileInfo))
             {
