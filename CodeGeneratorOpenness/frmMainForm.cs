@@ -1741,7 +1741,7 @@ namespace CodeGeneratorOpenness
         private void GenerateBlocksFromExcel(string excelFilePath)
         {
             // Set the license for EPPlus 8+
-            ExcelPackage.License = new LicenseProvider().GetLicense();
+            ExcelPackage.SetLicense(new LicenseContext { LicenseType = LicenseType.NonCommercial });
             FileInfo fileInfo = new FileInfo(excelFilePath);
             using (ExcelPackage package = new ExcelPackage(fileInfo))
             {
